@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webcam Feed</title>
+</head>
+<body>
+    <h1>Webcam Feed</h1>
+    <video id="webcam" autoplay playsinline></video>
+
+    <script>
+        // Get access to the user's camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                // Assign the camera stream to the video element
+                var webcamElement = document.getElementById('webcam');
+                webcamElement.srcObject = stream;
+            })
+            .catch(function(error) {
+                console.error('Error accessing the webcam:', error);
+            });
+    </script>
+</body>
+</html>
